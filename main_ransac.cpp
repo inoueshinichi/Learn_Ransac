@@ -41,4 +41,12 @@ int main(int, char**) {
     auto params = ransac.execute(data);
 
     std::cout << "直線の最適パラメータ: a=" << std::get<0>(params) << ", b=" << std::get<1>(params) << std::endl;
+
+    std::cout << "正解候補のモデル達" << std::endl;
+    auto candidate_models = ransac.get_candidate_models();
+    for (auto&& model : candidate_models)
+    {
+        std::cout << "error: " << model.first << 
+        ", a: " << std::get<0>(model.second) << ", b: " << std::get<1>(model.second) << std::endl;
+    }
 }

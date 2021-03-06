@@ -8,7 +8,10 @@
 
 class RansacLine 
 {
+public:
     using candidate_currect_models = std::map<double, std::tuple<double,double>>;
+    
+private:
     candidate_currect_models models_;
 
 public:
@@ -89,4 +92,9 @@ public:
         return std::begin(models_)->second;
     }
 
+    
+    candidate_currect_models& get_candidate_models()
+    {
+        return models_;
+    }
 };
